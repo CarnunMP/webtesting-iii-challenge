@@ -2,6 +2,7 @@ import React from "react";
 import * as rtl from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Dashboard from "./Dashboard";
+import { wrap } from "module";
 
 afterEach(rtl.cleanup);
 
@@ -26,7 +27,8 @@ describe("Gate", () => {
 });
 
 describe("Dashboard component", () => {
-    it("can debug the output", () => {
-        wrapper.debug();
+    it("shows the controls and display", () => {
+        expect(wrapper.queryByText(/unlocked/i)).toBeInTheDocument();
+        expect(wrapper.queryByText(/close gate/i)).toBeInTheDocument();
     });
 });
