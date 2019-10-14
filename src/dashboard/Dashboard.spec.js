@@ -32,3 +32,18 @@ describe("Dashboard component", () => {
         expect(wrapper.queryByText(/close gate/i)).toBeInTheDocument();
     });
 });
+
+describe("Controls component", () => {
+    it("buttons' text changes to reflect the state the door will be in if clicked", () => {
+        expect(wrapper.queryByText(/Close Gate/)).toBeInTheDocument();
+        expect(wrapper.queryByText(/Lock Gate/)).toBeInTheDocument();
+        
+        rtl.fireEvent.click(wrapper.queryByText(/Close Gate/));
+        expect(wrapper.queryByText(/Close Gate/)).not.toBeInTheDocument();
+        expect(wrapper.queryByText(/Open Gate/)).toBeInTheDocument();
+
+        rtl.fireEvent.click(wrapper.queryByText(/Lock Gate/));
+        expect(wrapper.queryByText(/Lock Gate/)).not.toBeInTheDocument();
+        expect(wrapper.queryByText(/Unlock Gate/)).toBeInTheDocument();
+    });
+});
