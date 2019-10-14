@@ -7,12 +7,11 @@ afterEach(rtl.cleanup);
 
 let wrapper;
 beforeEach(() => {
-
-    wrapper = rtl.render(<Display locked={false} closed={false} />);
+    wrapper = rtl.render(<Display />);
 });
 
 describe("Display component", () => {
     it("can debug the output", () => {
-        wrapper.debug;
+        wrapper.debug();
     });
 });

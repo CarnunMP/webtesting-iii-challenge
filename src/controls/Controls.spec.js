@@ -12,6 +12,6 @@ beforeEach(() => {
 
 describe("Controls component", () => {
     it("can debug the output", () => {
-        wrapper.debug;
+        wrapper.debug();
     });
 });
